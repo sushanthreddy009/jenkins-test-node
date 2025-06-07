@@ -1,24 +1,28 @@
 pipeline {
     agent any
+
     stages {
         stage('Pull Code') {
             steps {
-                git 'https://github.com/sushanthreddy009/jenkins-test-node.git'
+                bat 'echo Pulling Code'
             }
         }
+
         stage('Build') {
             steps {
-                sh 'npm install'
+                bat 'echo Building Application'
             }
         }
+
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'echo Running Tests'
             }
         }
+
         stage('Deploy') {
             steps {
-                echo 'Deploying to server...'
+                bat 'echo Deploying...'
             }
         }
     }
